@@ -1,0 +1,57 @@
+﻿@page
+@model Kurohtin.UI.Areas.Admin.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Dish</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Crepezh.Name" class="control-label"></label>
+                <input asp-for="Crepezh.Name" class="form-control" />
+                <span asp-validation-for="Crepezh.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Crepezh.Description" class="control-label"></label>
+                <input asp-for="Crepezh.Description" class="form-control" />
+                <span asp-validation-for="Crepezh.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Crepezh.Gramms" class="control-label"></label>
+                <input asp-for="Crepezh.Gramms" class="form-control" />
+                <span asp-validation-for="Crepezh.Calories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CrepezhImage" class="control-label"></label>
+                <input asp-for="Crepezh.Image" class="form-control" />
+                <span asp-validation-for="Crepezh.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Crepezh.CategoryId" class="control-label"></label>
+                <select asp-for="Crepezh.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Image" class="form-label">Изображение</label>
+                <input asp-for="Image" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

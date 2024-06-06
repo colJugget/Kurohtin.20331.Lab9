@@ -1,0 +1,17 @@
+﻿@if (Crepezh != null)
+{
+    <div class="card mt-5" style="width: 18rem;">
+        <img src="@Crepezh.Image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Crepezh.Name</h5>
+            <p class="card-text">@Crepezh.Description</p>
+            <h4 class="badge bg-info">@Crepezh.Gramms грамм</h4>
+        </div>
+    </div>
+}
+@code {
+    [Parameter]
+    public Crepezh Crepezh { get; set; }
+    [Parameter]
+    public EventCallback<Crepezhh> CrepezhChanged { get; set; }
+}

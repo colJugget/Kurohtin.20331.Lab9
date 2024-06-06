@@ -1,0 +1,24 @@
+﻿@page "/products"
+@rendermode InteractiveServer
+@using Kurohtin.Domain.Models
+
+<CascadingValue Value="ProductService">
+<CrepezhyList CrepezhSelected="ShowDetails" />
+<Pager />
+</CascadingValue>
+<DishDetails Crepezh="SelectedCrepezh" />
+<CrepezhDetails Crepezh="SelectedCrepezh" />
+
+@code {
+    [Inject] IProductService<Crepezh> ProductService { get; set; }
+    [Parameter]
+    public Crepezh SelectedDish { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+      await ProductService.GetProducts();
+    }
+   void ShowDetails(int id)
+    {
+        SelectedCrepezh = ProductService.Products.First(d => d.Id == id);
+    }
+}
